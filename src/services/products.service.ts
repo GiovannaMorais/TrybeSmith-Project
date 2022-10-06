@@ -14,7 +14,7 @@ class ProductService {
     return products;
   }
 
-  public create(product: Product): Promise<Product> {
+  public async create(product: Product): Promise<Product> {
     return this.model.create(product);
   }
 }
