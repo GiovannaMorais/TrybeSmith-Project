@@ -13,4 +13,9 @@ export default class OrderService {
     const products = await this.model.getOrder();
     return products;
   }
+
+  public async create(userId: number): Promise<number> {
+    const result = await this.model.create(userId);
+    return result;
+  }
 }

@@ -17,4 +17,11 @@ export default class UserModel {
     const { insertId } = dataInserted;
     return { id: insertId, ...user };
   }
+
+  public async findByUsername(username: string): Promise<User[] | []> {
+    const [result] = await this.connection
+      .execute('SELECT * FROM Trybesmith.Users WHERE username= ? ', [username]);
+
+    return result as User[];
+  }
 }

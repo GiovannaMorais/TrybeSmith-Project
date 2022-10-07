@@ -17,14 +17,4 @@ export default class LoginModel {
       );
     return result;
   }
-
-//   public async SignIn(login: Login): Promise <Login[]> {
-//     const { username, password } = login;
-//     const result = await this.connection.execute(
-//       'SELECT * FROM Trybesmith.Users WHERE username = ? AND password = ?', 
-//       [username, password],
-//     );
-//     const [rows] = result;
-//     return rows as Login[];
-//   }
 }

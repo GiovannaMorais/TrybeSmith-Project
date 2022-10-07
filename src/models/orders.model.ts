@@ -1,4 +1,4 @@
-import { Pool } from 'mysql2/promise';
+import { Pool, ResultSetHeader } from 'mysql2/promise';
 import { Order } from '../interfaces/orders.interface';
 
 export default class OrderModel {
@@ -18,5 +18,12 @@ export default class OrderModel {
     ORDER BY ord.userId`);
     const [rows] = result;
     return rows as Order[];
+  }
+
+  public async create(userId: number) {
+    const [{ insertId }] = await this.connection
+      .execute<ResultSetHeader>('INSERT INTO Trybesmith.Orders (userId) VALUES (?);', [userId]);
+
+    return insertId;
   }
 }
