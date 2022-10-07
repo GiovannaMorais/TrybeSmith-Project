@@ -15,8 +15,7 @@ export default class ValidateToken {
 
     try {
       const decoded = jwt.verify(token, TOKEN_SECRET_KEY) as JwtPayload;
-      // console.log('decoded', decoded.user.username);
-      res.locals.userId = decoded.user.username;
+      res.locals.userName = decoded.user.username;
     
       next();
     } catch (error) {
